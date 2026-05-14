@@ -1,81 +1,224 @@
-@import url("https://fonts.googleapis.com/css?family=Source+Sans+Pro:300,900");
-@import url("fontawesome-all.min.css");
+<!DOCTYPE HTML>
+<!--
+	Aerial by HTML5 UP
+	html5up.net | @ajlkn
+	Free for personal and commercial use under the CCA 3.0 license (html5up.net/license)
+-->
+<html>
+	<head>
+		<title>The Econ Collection</title>
+		<meta charset="utf-8" />
+		<meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no" />
+		<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css" />
+		<style>
+			/* 載入字體 */
+			@import url("https://fonts.googleapis.com/css?family=Source+Sans+Pro:300,900");
 
-/*
-Aerial by HTML5 UP - Modified for Adam Jensen
-*/
+			/* Reset */
+			html, body, div, span, h1, h2, h3, h4, h5, h6, p, blockquote, pre, a, abbr, acronym, address, big, cite, code, del, dfn, em, img, ins, kbd, q, s, samp, small, strike, strong, sub, sup, tt, var, b, u, i, center, dl, dt, dd, ol, ul, li, fieldset, form, label, legend, table, caption, tbody, tfoot, thead, tr, th, td, article, aside, canvas, details, embed, figure, figcaption, footer, header, hgroup, menu, nav, output, ruby, section, summary, time, mark, audio, video { margin: 0; padding: 0; border: 0; font-size: 100%; font: inherit; vertical-align: baseline; }
+			article, aside, details, figcaption, figure, footer, header, hgroup, menu, nav, section { display: block; }
+			body { line-height: 1; background: #ffffff; overflow: hidden; }
+			ol, ul { list-style: none; }
 
-html, body, div, span, applet, object,
-iframe, h1, h2, h3, h4, h5, h6, p, blockquote,
-pre, a, abbr, acronym, address, big, cite,
-code, del, dfn, em, img, ins, kbd, q, s, samp,
-small, strike, strong, sub, sup, tt, var, b,
-u, i, center, dl, dt, dd, ol, ul, li, fieldset,
-form, label, legend, table, caption, tbody,
-tfoot, thead, tr, th, td, article, aside,
-canvas, details, embed, figure, figcaption,
-footer, header, hgroup, menu, nav, output, ruby,
-section, summary, time, mark, audio, video {
-    margin: 0; padding: 0; border: 0;
-    font-size: 100%; font: inherit; vertical-align: baseline;
-}
+			/* Basic */
+			body, input, select, textarea {
+				color: #445E84; /* 統一字體顏色 */
+				font-family: 'Source Sans Pro', sans-serif;
+				font-size: 15pt;
+				font-weight: 300 !important;
+				letter-spacing: -0.025em;
+				line-height: 1.75em;
+			}
 
-article, aside, details, figcaption, figure, footer, header, hgroup, menu, nav, section {
-    display: block;
-}
+			a {
+				transition: border-color 0.2s ease-in-out;
+				border-bottom: dotted 1px;
+				color: inherit;
+				outline: 0;
+				text-decoration: none;
+			}
 
-body {
-    background: #fff;
-    overflow: hidden;
-    color: #445E84;
-    font-family: 'Source Sans Pro', sans-serif;
-    font-size: 15pt;
-    font-weight: 300;
-    line-height: 1.75em;
-}
+			a:hover { border-color: transparent; }
 
-/* 背景改成純色 + 靜止 */
-#bg {
-    background: #e8eaee !important;
-    height: 100%;
-    left: 0;
-    position: fixed;
-    top: 0;
-    width: 100%;
-    z-index: -1;
-}
+			/* Wrapper */
+			@keyframes wrapper { 0% { opacity: 0; } 100% { opacity: 1; } }
+			#wrapper {
+				animation: wrapper 3s forwards;
+				height: 100%;
+				left: 0;
+				position: fixed;
+				top: 0;
+				width: 100%;
+				background: #fff; /* 確保底色純白 */
+			}
 
-/* Overlay 調淡 */
-#overlay {
-    opacity: 0.1 !important;
-}
+			/* 移除原本背景圖的內容，但保留結構 */
+			#bg { display: none; }
 
-/* Icon 和文字顏色 */
-#header h1, #header p, .icon:before {
-    color: #445E84;
-}
+			/* Overlay - 已移除黑色遮罩圖層 */
+			#overlay {
+				background-image: none !important;
+				background-color: transparent;
+				height: 100%;
+				left: 0;
+				position: fixed;
+				top: 0;
+				width: 100%;
+			}
 
-#header nav a:before {
-    border: solid 1px #445E84;
-}
+			/* Main */
+			#main {
+				height: 100%;
+				left: 0;
+				position: fixed;
+				text-align: center;
+				top: 0;
+				width: 100%;
+			}
 
-#header nav a:hover:before {
-    background-color: rgba(68, 94, 132, 0.1);
-}
+			#main:before {
+				content: '';
+				display: inline-block;
+				height: 100%;
+				vertical-align: middle;
+				width: 1px;
+			}
 
-#header nav a:hover, #header nav a:active {
-    color: #445E84;
-}
+			/* Header */
+			@keyframes header {
+				0% { transform: translate3d(0,1em,0); opacity: 0; }
+				100% { transform: translate3d(0,0,0); opacity: 1; }
+			}
 
-/* 隱藏 Footer */
-#footer {
-    display: none !important;
-}
+			#header {
+				animation: header 1s 1s forwards; /* 縮短延遲讓顯示更順暢 */
+				backface-visibility: hidden;
+				display: inline-block;
+				opacity: 0;
+				position: relative;
+				text-align: center;
+				top: -1em;
+				vertical-align: middle;
+				width: 90%;
+			}
 
-/* 保留原本動畫 */
-#wrapper, #header, #header nav li {
-    animation: inherit !important;
-}
+			#header h1 {
+				font-size: 4.35em;
+				font-weight: 900;
+				letter-spacing: -0.035em;
+				line-height: 1em;
+				color: #445E84;
+				text-shadow: none; /* 移除陰影以適配白底 */
+			}
 
-/* 其他保持原樣 */
-a { color: inherit; }
+			#header p {
+				font-size: 1.25em;
+				margin: 0.75em 0 0.25em 0;
+				color: #445E84;
+				opacity: 0.85;
+			}
+
+			/* Nav */
+			@keyframes nav-icons {
+				0% { transform: translate3d(0,1em,0); opacity: 0; }
+				100% { transform: translate3d(0,0,0); opacity: 1; }
+			}
+
+			#header nav { margin: 1.5em 0 0 0; }
+			#header nav li {
+				animation: nav-icons 0.5s ease-in-out forwards;
+				display: inline-block;
+				height: 5.35em;
+				line-height: 5.885em;
+				opacity: 0;
+				position: relative;
+				width: 5.35em;
+			}
+
+			/* 動態延遲列隊 */
+			#header nav li:nth-child(1) { animation-delay: 1.5s; }
+			#header nav li:nth-child(2) { animation-delay: 1.75s; }
+			#header nav li:nth-child(3) { animation-delay: 2s; }
+			#header nav li:nth-child(4) { animation-delay: 2.25s; }
+
+			#header nav a {
+				-webkit-tap-highlight-color: rgba(0, 0, 0, 0);
+				border: 0;
+				display: inline-block;
+			}
+
+			#header nav a:before {
+				transition: all 0.2s ease-in-out;
+				border-radius: 100%;
+				border: solid 1px #445E84; /* Icon 外圈顏色 */
+				color: #445E84; /* Icon 顏色 */
+				display: block;
+				font-size: 1.75em;
+				height: 2.5em;
+				line-height: 2.5em;
+				position: relative;
+				text-align: center;
+				width: 2.5em;
+			}
+
+			#header nav a:hover:before {
+				background-color: rgba(68, 94, 132, 0.1); /* 滑過時的輕微填充 */
+				color: #445E84;
+			}
+
+			#header nav a span { display: none; }
+
+			/* Footer */
+			#footer {
+				bottom: 0;
+				height: 6em;
+				left: 0;
+				line-height: 8em;
+				position: absolute;
+				text-align: center;
+				width: 100%;
+				color: #445E84;
+				font-size: 0.8em;
+			}
+
+			/* Responsive */
+			@media screen and (max-width: 736px) {
+				body, input, select, textarea { font-size: 11pt; }
+				#header h1 { font-size: 2.5em; }
+			}
+		</style>
+	</head>
+	<body class="is-preload">
+		<div id="wrapper">
+			<div id="bg"></div>
+			<div id="overlay"></div>
+			<div id="main">
+
+				<!-- Header -->
+					<header id="header">
+						<h1>Econ_Will</h1>
+						<p>The Econ Collection &nbsp;&bull;&nbsp; HKDSE Economics Tutor</p>
+						<nav>
+							<ul>
+								<li><a href="#" class="icon brands fa-whatsapp"><span class="label">WhatsApp</span></a></li>
+								<li><a href="#" class="icon solid fa-envelope"><span class="label">Email</span></a></li>
+								<li><a href="#" class="icon solid fa-globe"><span class="label">Website</span></a></li>
+								<li><a href="#" class="icon brands fa-app-store-ios"><span class="label">App Store</span></a></li>
+							</ul>
+						</nav>
+					</header>
+
+				<!-- Footer -->
+					<footer id="footer">
+						<span class="copyright">&copy; The Econ Collection. Design: <a href="http://html5up.net">HTML5 UP</a>.</span>
+					</footer>
+
+			</div>
+		</div>
+		<script>
+			window.onload = function() { document.body.classList.remove('is-preload'); }
+			window.ontouchmove = function() { return false; }
+			window.onorientationchange = function() { document.body.scrollTop = 0; }
+		</script>
+	</body>
+</html>
